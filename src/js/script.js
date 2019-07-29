@@ -171,39 +171,37 @@
       for(let paramId in thisProduct.data.params){
         
         /* save the element in thisProduct.data.params with key paramId as const param */
-        const param = thisProduct.data.params(paramId);
+        const param = thisProduct.data.params[paramId];
 
         /* START LOOP: for each optionId in param.options */
         for(let optionId in param.options){
 
           /* save the element in param.options with key optionId as const option */
-          const option = param.options(optionId);
+          const option = param.options[optionId];
 
-          /* make a new constant optionSelected  */
+          /* make a new constant optionSelected...  */
           const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
 
           /* START IF: if option is selected and option is not default */
           if(optionSelected && !option.default){
 
             /* add price of option to variable price */
-            price += options.price;
+            price += option.price;
           }
 
           /* END ELSE IF: if option is not selected and option is default */
           else if(!optionSelected && option.default){
 
             /* decrease the price by the price of that option */
-            price -= options.price;
+            price -= option.price;
           }  
-        }
         /* END LOOP: for each optionId in param.options */
-      }
+        }  
       /* END LOOP: for each paramId in thisProduct.data.params */
-
-
+      }
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
-      thisProduct.priceElem = price;
+      thisProduct.priceElem.innerHTML = price;
       console.log(price);
     }
   }
