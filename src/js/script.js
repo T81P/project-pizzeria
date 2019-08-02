@@ -201,6 +201,8 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       ////console.log('formData', formData);
 
+      thisProduct.params = {};
+
       /* set variable price to equal thisProduct.data.price */
       let price = thisProduct.data.price;
       ////console.log('price', price);
@@ -240,6 +242,14 @@
           /* START IF: if option is selected */
           if(optionSelected) {
 
+            if(!thisProduct.params[paramId]){
+              thisProduct.params[paramId] = {
+                label:param.label,
+                options: {},
+              };
+            }
+            thisProduct.params[paramId].options[paramId] = option.label;
+
             /* START LOOP: for each image of the option) */
             for (let picImage of allPicImages) {
 
@@ -269,11 +279,14 @@
       /* END LOOP: for each paramId in thisProduct.data.params */
       }
       /* multiply price by amount */
-      price *= thisProduct.amountWidget.value;
+      thisProduct.priceSingle = price;
+      thisProduct.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
-      thisProduct.priceElem.innerHTML = price;
+      thisProduct.priceElem.innerHTML = thisProduct.price;
+      
       //console.log(price);
+      console.log(thisProduct.params);
     }
 
     initAmountWidget(){
@@ -289,7 +302,9 @@
 
     addToCart(){
       const thisProduct = this;
-
+      
+      thisProduct.name = thisProduct.data.name;
+      thisProduct.amount = thisProduct.amountWidget.value;
       app.cart.add(thisProduct);
     }
   }
@@ -375,7 +390,7 @@
 
       thisCart.dom.wraper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wraper.querySelector(select.cart.toggleTrigger);
-      
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
     }
       
     initAction(){
@@ -388,9 +403,19 @@
     }
 
     add(menuProduct){
-      //const thisCart = this;
+      const thisCart = this;
 
       console.log('adding product', menuProduct);
+
+      /* generate HTML based on template */
+      const generatedHTML = templates.cartProduct(menuProduct);
+
+      /* create element using utils.createElementFromHTML */
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+
+      /*  add element to cart */
+      thisCart.dom.productList.appendChild(generatedDOM);
+    
     }
   }
 
