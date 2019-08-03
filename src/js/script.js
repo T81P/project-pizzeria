@@ -100,7 +100,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
 
-      //console.log('new Product:', thisProduct);
+      ////console.log('new Product:', thisProduct);
     }
 
     renderInMenu(){
@@ -189,23 +189,23 @@
         thisProduct.addToCart();
       });
 
-      ////console.log('initOrderForm');
+      //////console.log('initOrderForm');
 
     }
 
     processOrder(){
       const thisProduct = this;
-      ////console.log('processOrder');
+      //////console.log('processOrder');
 
       /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
-      ////console.log('formData', formData);
+      //////console.log('formData', formData);
 
       thisProduct.params = {};
 
       /* set variable price to equal thisProduct.data.price */
       let price = thisProduct.data.price;
-      ////console.log('price', price);
+      //////console.log('price', price);
       
       /* START LOOP: for each paramId in thisProduct.data.params */
       for(let paramId in thisProduct.data.params){
@@ -285,8 +285,8 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.price;
       
-      //console.log(price);
-      console.log(thisProduct.params);
+      ////console.log(price);
+      //console.log(thisProduct.params);
     }
 
     initAmountWidget(){
@@ -319,8 +319,8 @@
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initAction();
 
-      //console.log('amountWidget', thisWidget);
-      //console.log('constructor arguments', element);
+      ////console.log('amountWidget', thisWidget);
+      ////console.log('constructor arguments', element);
     }
 
     getElements(element){
@@ -376,11 +376,12 @@
       const thisCart = this;
 
       thisCart.products = [];
-
+      
+      thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
       thisCart.getElements(element);
       thisCart.initAction();
 
-      console.log('new Cart', thisCart);
+      //console.log('new Cart', thisCart);
     }
 
     getElements(element){
@@ -405,7 +406,7 @@
     add(menuProduct){
       const thisCart = this;
 
-      console.log('adding product', menuProduct);
+      //console.log('adding product', menuProduct);
 
       /* generate HTML based on template */
       const generatedHTML = templates.cartProduct(menuProduct);
@@ -416,8 +417,28 @@
       /*  add element to cart */
       thisCart.dom.productList.appendChild(generatedDOM);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      console.log('thisCart.products', thisCart.products);
-    
+      //console.log('thisCart.products', thisCart.products);
+
+      thisCart.update();
+    }
+
+    update(){
+      thisCart = this;
+
+      thisCart.totalNumber = 0;
+      thisCart.subtotalPrice = 0;
+
+      for(let cartProduct of thisCart.products){
+        thisCart.subtotalPrice += cartProduct.price;
+        thisCart.totalNumber += cartProduct.amount;;
+      }
+
+      thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+
+      console.log('totalPrice', thisCart.totalPrice);
+      console.log('subtotalPrice', thisCart.subtotalPrice);
+      console.log('totalNumber', thisCart.totalNumber);
+      
     }
   }
 
@@ -435,8 +456,8 @@
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
 
-      console.log(thisCartProduct);
-      console.log('productData', menuProduct);
+      //console.log(thisCartProduct);
+      //console.log('productData', menuProduct);
     }
 
     getElements(element){
@@ -467,7 +488,7 @@
   const app = {
     initMenu: function(){
       const thisApp = this;
-      //console.log('thisApp.data:', thisApp.data);
+      ////console.log('thisApp.data:', thisApp.data);
 
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
@@ -482,11 +503,11 @@
 
     init: function(){
       const thisApp = this;
-      //console.log('*** App starting ***');
-      //console.log('thisApp:', thisApp);
-      //console.log('classNames:', classNames);
-      //console.log('settings:', settings);
-      //console.log('templates:', templates);
+      ////console.log('*** App starting ***');
+      ////console.log('thisApp:', thisApp);
+      ////console.log('classNames:', classNames);
+      ////console.log('settings:', settings);
+      ////console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
