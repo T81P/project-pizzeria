@@ -76,7 +76,14 @@
     cart: {
       defaultDeliveryFee: 20,
     },
-  // CODE ADDED END
+    // CODE ADDED END
+    // CODE ADDED START
+    db: {
+      url: '//localhost:3131',
+      product: 'product',
+      order: 'order',
+    },
+    // CODE ADDED END
   };
 
   const templates = {
@@ -558,14 +565,32 @@
       ////console.log('thisApp.data:', thisApp.data);
 
       for(let productData in thisApp.data.products){
-        new Product(productData, thisApp.data.products[productData]);
+        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
     },
 
     initData: function(){
       const thisApp = this;
 
-      thisApp.data = dataSource;
+      thisApp.data = {};
+
+      const url = settings.db.url + '/' + settings.db.product; 
+
+      fetch(url)
+        .then(function(rawResponse){
+          return rawResponse.json();
+        })
+        .then(function(parsedResponse){
+          console.log('parsedResponse', parsedResponse);
+
+          /* save parsedResponse as thisApp.data.products */
+          parsedResponse = thisApp.data.products;
+
+          /* execute initMenu method */
+          thisApp.initMenu();
+        });
+
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
 
     init: function(){
@@ -577,7 +602,6 @@
       ////console.log('templates:', templates);
 
       thisApp.initData();
-      thisApp.initMenu();
       thisApp.initCart();
     },
 
