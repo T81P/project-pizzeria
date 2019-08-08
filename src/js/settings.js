@@ -89,4 +89,3 @@ export const templates = {
   // CODE ADDED END
 };
 
-export default settings;
