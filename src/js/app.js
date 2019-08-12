@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars ,no-undef */
 import {settings,select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
@@ -126,6 +127,7 @@ const app = {
     const reservation = document.querySelector(select.containerOf.booking);
 
     const newBooking = new Booking(reservation);
+
 
   },
 

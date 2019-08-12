@@ -9,9 +9,9 @@ class BaseWidget {
   }
 
   get value(){
-      const thisWidget = this;
+    const thisWidget = this;
 
-      return thisWidget.correctValue;
+    return thisWidget.correctValue;
   }
 
   set value(value){
@@ -20,17 +20,17 @@ class BaseWidget {
     const newValue = thisWidget.parseValue(value);
 
     if(newValue != thisWidget.correctValue && thisWidget.isValid(newValue)){
-        thisWidget.correctValue = newValue;
-        thisWidget.announce();
+      thisWidget.correctValue = newValue;
+      thisWidget.announce();
     }
 
     thisWidget.renderValue();
   }
 
   setValue(value){
-      const thisWidget = this;
+    const thisWidget = this;
 
-      thisWidget.value = value;
+    thisWidget.value = value;
   }
 
   parseValue(value){
@@ -51,7 +51,7 @@ class BaseWidget {
     const thisWidget = this;
 
     const event = new CustomEvent('updated', {
-        bubbles: true
+      bubbles: true
     });
 
     thisWidget.dom.wrapper.dispatchEvent(event);

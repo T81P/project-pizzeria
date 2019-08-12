@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars ,no-undef */
 import BaseWidget from './BaseWidget.js';
 import {utils} from '../utils.js';
 import {settings, select} from '../settings.js';
@@ -36,21 +37,18 @@ class DatePicker extends BaseWidget{
     });
   }
 
-  parseValue(newValue){
-    const thisWidget = this;
-
-    return newValue;
+  parseValue(value){
+    return value;
   }
 
-  isValid(newValue){
-    const thisWidget = this;
-
+  isValid(){
     return true;
   }
 
   renderValue() {
-    const thisWidget = this;
+
   }
 
 }
+
 export default DatePicker;
