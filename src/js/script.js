@@ -212,10 +212,10 @@
       /* set variable price to equal thisProduct.data.price */
       let price = thisProduct.data.price;
       //////console.log('price', price);
-      
+
       /* START LOOP: for each paramId in thisProduct.data.params */
       for(let paramId in thisProduct.data.params){
-        
+
         /* save the element in thisProduct.data.params with key paramId as const param */
         const param = thisProduct.data.params[paramId];
 
@@ -240,9 +240,9 @@
             /* decrease the price by the price of that option */
             price -= option.price;
 
-          /* END ELSE IF: if option is not selected and option is default */  
+          /* END ELSE IF: if option is not selected and option is default */
           }
-          
+
           const allPicImages = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
 
           /* START IF: if option is selected */
@@ -281,7 +281,7 @@
           }
 
         /* END LOOP: for each optionId in param.options */
-        }  
+        }
       /* END LOOP: for each paramId in thisProduct.data.params */
       }
       /* multiply price by amount */
@@ -290,16 +290,16 @@
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.price;
-      
+
       ////console.log(price);
       //console.log(thisProduct.params);
     }
 
     initAmountWidget(){
       const thisProduct = this;
-      
+
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-      
+
       thisProduct.amountWidgetElem.addEventListener('updated', function(){
         thisProduct.processOrder();
       });
@@ -308,7 +308,7 @@
 
     addToCart(){
       const thisProduct = this;
-      
+
       thisProduct.name = thisProduct.data.name;
       thisProduct.amount = thisProduct.amountWidget.value;
       app.cart.add(thisProduct);
@@ -353,7 +353,7 @@
 
     initAction(){
       const thisWidget = this;
-      
+
       thisWidget.input.addEventListener('change', function(){
         thisWidget.setValue(thisWidget.input.value);
       });
@@ -385,7 +385,7 @@
       const thisCart = this;
 
       thisCart.products = [];
-      
+
       thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
       thisCart.getElements(element);
       thisCart.initAction();
@@ -411,7 +411,7 @@
         thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
       }
     }
-      
+
     initAction(){
       const thisCart = this;
 
@@ -437,7 +437,7 @@
 
     sendOrder(){
       const thisCart = this;
-      
+
       const url = settings.db.url + '/' + settings.db.order;
 
       const payload = {
@@ -454,7 +454,6 @@
       for(let product of thisCart.products){
         product.getData();
         payload.products.push(product);
-      
       }
 
       const options = {
@@ -464,7 +463,7 @@
         },
         body: JSON.stringify(payload),
       };
-      
+
       fetch(url, options)
         .then(function(response){
           return response.json();
@@ -510,7 +509,7 @@
       console.log('totalPrice', thisCart.totalPrice);
       console.log('subtotalPrice', thisCart.subtotalPrice);
       console.log('totalNumber', thisCart.totalNumber);
-      
+
       for(let key of thisCart.renderTotalsKeys){
         for(let elem of thisCart.dom[key]){
           elem.innerHTML = thisCart[key];
@@ -543,7 +542,7 @@
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
-      
+
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
       thisCartProduct.initActions();
@@ -566,9 +565,9 @@
 
     initAmountWidget(){
       const thisCartProduct = this;
-      
+
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
-      
+
       thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
@@ -613,7 +612,7 @@
       return product;
 
     }
-    
+
   }
 
   const app = {
@@ -647,7 +646,7 @@
           thisApp.initMenu();
         });
 
-      console.log('thisApp.data', JSON.stringify(thisApp.data));  
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
 
     init: function(){

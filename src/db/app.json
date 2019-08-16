@@ -222,7 +222,7 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["bread", "lemonWater"]
+      "starters": ["bread", "water"]
     },
     {
       "id": 3,
@@ -232,7 +232,7 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["bread", "lemonWater"]
+      "starters": ["bread", "water"]
     },
     {
       "id": 4,
@@ -252,13 +252,13 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["lemonWater"]
+      "starters": ["water"]
     }
   ],
   "booking": [
     {
       "id": 1,
-      "date": "2019-08-14",
+      "date": "2019-08-15",
       "hour": "16:00",
       "table": 1,
       "repeat": false,
