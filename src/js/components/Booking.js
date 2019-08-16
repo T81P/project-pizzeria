@@ -172,19 +172,14 @@ class Booking {
         }
       });
 
-      thisBooking.dom.datePicker.addEventListener('update',function(){
+      thisBooking.dom.datePicker.addEventListener('input',function(){
         if (table.classList.contains(classNames.booking.tableReserved)) {
           table.classList.remove(classNames.booking.tableReserved);
           console.log('reserved remove', table);
         }
       });
     }
-
-
-
-
   }
-
 
   sendBooking() {
     const thisBooking = this;
@@ -222,9 +217,8 @@ class Booking {
       }) .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
       });
+
   }
-
-
 
   render (reservation){
     const thisBooking = this;
@@ -264,7 +258,5 @@ class Booking {
       thisBooking.sendBooking();
     });
   }
-
-
 }
 export default Booking;

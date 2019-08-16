@@ -35,6 +35,10 @@ class DatePicker extends BaseWidget{
         'firstDayOfWeek': 1 // start week on Monday
       }
     });
+
+    thisWidget.dom.input.addEventListener('input', function(){
+      thisWidget.value = thisWidget.dom.input.value;
+    });
   }
 
   parseValue(value){
