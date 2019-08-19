@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -21,6 +22,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -61,16 +63,138 @@
     </div>
   </header>
 
-  <div id="pages">
-    <section id="order">
-      <div id="product-list" class="product-list container"></div>
-    </section>
-    <section id="booking">
-      <div class="booking-wrapper container"></div>
-    </section>
-  </div>
+  <section id="pages">
+    <div id="home">
+      <div class="home-wrapper container">
 
-   <script id="template-booking-widget" type="text/x-handlebars-template">
+        <section class="welcome">
+          <div class="container">
+            <div class="row top-img">
+              <div class="col-6 card bw-card justify-content-center align-items-center">
+                <img src="https://i.postimg.cc/7hrxgjtw/pizza-1.jpg" alt="image" class="bw-photo">
+                <div class="card-body position-absolute">
+                  <h2 class="to-animate">Order online</h2>
+                  <p>Delicious food delivered to your door</p>
+              </div>
+              </div>
+              <div class="col-6 card bw-card justify-content-center align-items-center">
+                <img src="https://i.postimg.cc/Wbn2kWGc/pizza-2.jpg" alt="image" class="bw-photo">
+                <div class="card-body position-absolute">
+                  <h2 class="welcome-caption">Book a table</h2>
+                </div>
+              </div>
+              <div class="col-12 opening-times">
+                <h2>Opening hours</h2>
+                <h5>Tue-Sun 12PM - 12AM</h5>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="carousel-section">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://i.postimg.cc/pXxWybnB/pizza-3.jpg" class="quotes-img" alt="image">
+            </div>
+            <div class="col-8">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <h6>Amazing service!</h6>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <p>- Margaret Osborne</p>
+                  </div>
+                  <div class="carousel-item">
+                    <h6>Best italian food in town</h6>
+                    <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
+                    <p>- John Doe</p>
+                  </div>
+                  <div class="carousel-item">
+                    <h6>Great value for money</h6>
+                    <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    <p>- Max Mustermann</p>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery">
+          <div class="row">
+            <div class="col-4 card justify-content-center align-items-center text-center">
+                <figure class="sheet"><img src="https://i.postimg.cc/FzbhGGwc/pizza-4.jpg" alt="image" class="gallery-photo">
+                  <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+                </figure>
+            </div>
+            <div class="col-4 card justify-content-center align-items-center text-center">
+              <figure class="sheet"><img src="https://i.postimg.cc/L88mBtDY/pizza-5.jpg" alt="image" class="gallery-photo">
+                <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-4 card justify-content-center align-items-center text-center">
+              <figure class="sheet"><img src="https://i.postimg.cc/Sx1kZn1Z/pizza-6.jpg" alt="image" class="gallery-photo">
+                <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 card justify-content-center align-items-center text-center">
+              <figure class="sheet"><img src="https://i.postimg.cc/bY1YzNdJ/pizza-7.jpg" alt="image" class="gallery-photo">
+                <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-4 card justify-content-center align-items-center text-center">
+              <figure class="sheet"><img src="https://i.postimg.cc/yNwBHwHc/pizza-8.jpg" alt="image" class="gallery-photo">
+                <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-4 card justify-content-center align-items-center text-center">
+              <figure class="sheet"><img src="https://i.postimg.cc/rpdc7qvq/pizza-9.jpg" alt="image" class="gallery-photo">
+                <figcaption>
+                  <i class="fas fa-heart"></i><i class="fas fa-share-alt"></i>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <br>
+          <p><a href="#" class="ig">View more on Instagram</a></p>
+        </section>
+      </div>
+    </div>
+  </section>
+  <section id="order">
+    <div id="product-list" class="product-list container"></div>
+  </section>
+  <section id="booking">
+    <div class="booking-wrapper container"></div>
+  </section>
+
+  <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">
       <h2 class="page__title no-spacing">Book a table</h2>
       <form class="booking-form">
@@ -247,5 +371,8 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
   <script src="js/app.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,170 @@
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.opening-times {
+  background-color: $color-main;
+  border-radius: $radius;
+  font-size: $font-bold;
+  margin-top: 7px;
+  height: 120px;
+  padding: 35px;
+}
+
+.top-img {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bw-photo {
+  height: 100px;
+  width: 290px;
+  object-fit: cover;
+  flex: 1;
+  overflow: hidden;
+  border-radius: $radius;
+}
+
+.bw-card {
+  height: 120px;
+}
+
+.card-body p {
+  color: $color-light;
+  transform: translateY(250%);
+}
+
+.card-body .to-animate {
+  transform: translateY(80%);
+}
+
+.bw-card:hover .card-body > p {
+  margin-top: 0;
+  transition: $transition;
+  transform: translateY(-20%);
+}
+
+.bw-card:hover .card-body > .to-animate {
+  transform: translateY(-40%);
+  transition: $transition;
+}
+
+
+h2, h5 {
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-light;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 12px;
+}
+
+.carousel-section {
+  margin-top: 100px;
+}
+
+.carousel-indicators > li {
+  height: 1px;
+  width: 15px;
+  border-radius: 50%;
+  background: $color-dark;
+}
+
+ol.carousel-indicators li.active {
+  background: $color-dark;
+}
+
+.carousel {
+  padding: 20px;
+}
+
+.quotes-img {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: $radius;
+  object-fit: cover;
+}
+
+.gallery {
+  margin: 100px 0 0 0;
+}
+
+.gallery-photo {
+  width: 200px;
+  height: 200px;
+}
+
+.sheet {
+  position: relative;
+}
+
+.sheet:after {
+  width: 200px;
+  height: 200px;
+  content: "";
+  background: $color-dark;
+  opacity: 0.5;
+  position: absolute;
+  display: none;
+  left: 0px;
+  top: 0;
+}
+
+.sheet:hover:after{
+  display: block;
+  transition: $transition;
+}
+
+.fas {
+  color: $color-light;
+  font-size: 30px;
+  padding: 5px;
+}
+
+.fas:hover{
+  color: $color-main;
+}
+
+.sheet figcaption{
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.sheet:hover figcaption{
+  display: block;
+  z-index: 2;
+  color: $color-light;
+}
+
+.card {
+  border: none;
+}
+
+.ig {
+  color: $color-main;
+  text-decoration: underline;
+}
