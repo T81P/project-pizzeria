@@ -16,6 +16,14 @@
   border-radius: $radius;
 }
 
+.orderLink:hover {
+  text-decoration: none;
+}
+
+.bookingLink:hover {
+  text-decoration: none;
+}
+
 .opening-times {
   background-color: $color-main;
   border-radius: $radius;
@@ -48,8 +56,13 @@
   transform: translateY(250%);
 }
 
-.card-body .to-animate {
-  transform: translateY(80%);
+.to-animate >h2 {
+  transform: translateY(60%);
+}
+
+.bw-card:hover .card-body .to-animate > h2 {
+  transform: translateY(-20%);
+  transition: $transition;
 }
 
 .bw-card:hover .card-body > p {
@@ -57,12 +70,6 @@
   transition: $transition;
   transform: translateY(-20%);
 }
-
-.bw-card:hover .card-body > .to-animate {
-  transform: translateY(-40%);
-  transition: $transition;
-}
-
 
 h2, h5 {
   text-transform: uppercase;
@@ -135,13 +142,13 @@ ol.carousel-indicators li.active {
   transition: $transition;
 }
 
-.fas {
+.fas-icon {
   color: $color-light;
   font-size: 30px;
   padding: 5px;
 }
 
-.fas:hover{
+.fas-icon:hover{
   color: $color-main;
 }
 
